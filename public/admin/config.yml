@@ -5,7 +5,7 @@
 
 backend:
   name: github
-  repo: mjaffry01/mindsuitecms
+  repo: mjaffry01/mindsuiteCMS
   branch: main
   # GitHub login helper (see oauth-worker/README section in the main README).
   # Replace with your deployed Cloudflare Worker URL.
@@ -23,7 +23,7 @@ local_backend: true
 media_folder: public/uploads
 public_folder: /uploads
 
-site_url: https://mjaffry01.github.io/mindsuitecms
+site_url: https://mjaffry01.github.io/mindsuiteCMS
 logo_url: ../favicon.svg
 
 collections:

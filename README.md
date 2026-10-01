@@ -25,13 +25,13 @@ Animations and interactions live in code (`src/scripts/motion.ts`, `src/styles/g
 ## One-time setup
 
 ### 1. Turn on GitHub Pages
-Repo → **Settings → Pages → Source: GitHub Actions**. Push to `main` (or run the workflow) and the site appears at `https://mjaffry01.github.io/mindsuitecms/`.
+Repo → **Settings → Pages → Source: GitHub Actions**. Push to `main` (or run the workflow) and the site appears at `https://mjaffry01.github.io/mindsuiteCMS/`.
 
 ### 2. Enable the admin login (GitHub OAuth helper)
 GitHub Pages can't run server code, so the login uses a free Cloudflare Worker in `oauth-worker/`.
 
 1. Create a GitHub OAuth App: GitHub → Settings → Developer settings → **OAuth Apps → New**.
-   - Homepage URL: `https://mjaffry01.github.io/mindsuitecms/`
+   - Homepage URL: `https://mjaffry01.github.io/mindsuiteCMS/`
    - Authorization callback URL: `https://mindsuite-cms-auth.<your-subdomain>.workers.dev/callback`
 2. Deploy the worker:
    ```bash
