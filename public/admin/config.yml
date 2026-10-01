@@ -1,0 +1,272 @@
+# Decap CMS configuration — https://decapcms.org/docs/configuration-options/
+#
+# Editing here commits straight to `main`; the GitHub Actions workflow then
+# rebuilds and publishes the site (about a minute).
+
+backend:
+  name: github
+  repo: mjaffry01/mindsuitecms
+  branch: main
+  # GitHub login helper (see oauth-worker/README section in the main README).
+  # Replace with your deployed Cloudflare Worker URL.
+  base_url: https://mindsuite-cms-auth.YOUR-SUBDOMAIN.workers.dev
+  auth_endpoint: auth
+  commit_messages:
+    update: 'content: update {{collection}} “{{slug}}”'
+    create: 'content: create {{collection}} “{{slug}}”'
+    delete: 'content: delete {{collection}} “{{slug}}”'
+
+# Lets you run the CMS against local files: `npm run cms` + `npm run dev`,
+# then open http://localhost:4321/admin/
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://mjaffry01.github.io/mindsuitecms
+logo_url: ../favicon.svg
+
+collections:
+  # ---------- Site-wide settings ----------
+  - name: settings
+    label: Site settings
+    editor: { preview: false }
+    files:
+      - name: site
+        label: Brand, navigation & footer
+        file: src/data/site.json
+        fields:
+          - { name: name, label: Company name, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: logo, label: Logo (optional, replaces the text logo), widget: image, required: false }
+          - { name: accent, label: Accent colour, widget: color, default: '#E8572A' }
+          - name: nav
+            label: Menu
+            widget: list
+            summary: '{{fields.label}}'
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: 'Link (#section, /page or https://…)', widget: string }
+          - name: navCta
+            label: Menu button
+            widget: object
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: Link, widget: string }
+          - name: contact
+            label: Contact details
+            widget: object
+            fields:
+              - { name: address, label: Address, widget: text }
+              - { name: phone, label: Phone, widget: string }
+              - { name: email, label: Email, widget: string, required: false }
+          - name: social
+            label: Social links
+            widget: list
+            summary: '{{fields.label}}'
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: URL, widget: string }
+          - name: footerLinks
+            label: Footer links
+            widget: list
+            summary: '{{fields.label}}'
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: Link, widget: string }
+          - { name: copyright, label: Copyright line, widget: string }
+
+  # ---------- Home page built from sections ----------
+  - name: home
+    label: Home page
+    editor: { preview: false }
+    files:
+      - name: home
+        label: Home page sections
+        file: src/data/home.json
+        fields:
+          - { name: seoTitle, label: Browser tab title, widget: string }
+          - { name: seoDescription, label: Search description, widget: text }
+          - name: blocks
+            label: Sections (drag to reorder)
+            label_singular: section
+            widget: list
+            typeKey: type
+            types:
+              - name: hero
+                label: Hero (animated network)
+                widget: object
+                summary: 'Hero · {{fields.heading}}'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - { name: eyebrow, label: Small label, widget: string, required: false }
+                  - { name: heading, label: Heading, widget: string }
+                  - { name: text, label: Intro text, widget: text, required: false }
+                  - name: primary
+                    label: Primary button
+                    widget: object
+                    fields: [{ name: label, label: Label, widget: string }, { name: href, label: Link, widget: string }]
+                  - name: secondary
+                    label: Secondary button
+                    widget: object
+                    required: false
+                    fields: [{ name: label, label: Label, widget: string }, { name: href, label: Link, widget: string }]
+
+              - name: stats
+                label: Counting numbers
+                widget: object
+                summary: 'Numbers'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - name: items
+                    label: Numbers
+                    widget: list
+                    summary: '{{fields.value}}{{fields.suffix}} {{fields.label}}'
+                    fields:
+                      - { name: value, label: Number, widget: number, value_type: float }
+                      - { name: decimals, label: Decimal places, widget: number, default: 0, value_type: int }
+                      - { name: prefix, label: Before number, widget: string, required: false }
+                      - { name: suffix, label: 'After number (+, %)', widget: string, required: false }
+                      - { name: label, label: Label, widget: string }
+
+              - name: cards
+                label: Hover cards (services)
+                widget: object
+                summary: 'Cards · {{fields.heading}}'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - { name: eyebrow, label: Small label, widget: string, required: false }
+                  - { name: heading, label: Heading, widget: string }
+                  - { name: text, label: Intro text, widget: text, required: false }
+                  - name: items
+                    label: Cards
+                    widget: list
+                    summary: '{{fields.title}}'
+                    fields:
+                      - name: icon
+                        label: Icon
+                        widget: select
+                        options: [erp, code, shield, ai, cloud, people, chart, globe, bolt]
+                      - { name: title, label: Title, widget: string }
+                      - { name: text, label: Text, widget: text }
+                      - { name: link, label: '"Read more" link', widget: string, required: false }
+
+              - name: chart
+                label: Chart
+                widget: object
+                summary: 'Chart · {{fields.heading}}'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - { name: eyebrow, label: Small label, widget: string, required: false }
+                  - { name: heading, label: Heading, widget: string }
+                  - { name: text, label: Text, widget: text, required: false }
+                  - name: chartType
+                    label: Chart type
+                    widget: select
+                    default: bar
+                    options: [{ label: Bar, value: bar }, { label: Line, value: line }, { label: Doughnut, value: doughnut }]
+                  - { name: seriesLabel, label: What the numbers measure, widget: string }
+                  - name: points
+                    label: Data
+                    widget: list
+                    summary: '{{fields.label}}: {{fields.value}}'
+                    fields:
+                      - { name: label, label: Label, widget: string }
+                      - { name: value, label: Value, widget: number, value_type: float }
+                  - { name: note, label: Note under the chart, widget: string, required: false }
+
+              - name: tags
+                label: Tag cloud (industries)
+                widget: object
+                summary: 'Tags · {{fields.heading}}'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - { name: eyebrow, label: Small label, widget: string, required: false }
+                  - { name: heading, label: Heading, widget: string }
+                  - { name: text, label: Text, widget: text, required: false }
+                  - name: items
+                    label: Tags
+                    widget: list
+                    summary: '{{fields.name}}'
+                    fields: [{ name: name, label: Name, widget: string }]
+
+              - name: split
+                label: Text + checklist panel
+                widget: object
+                summary: 'Split · {{fields.heading}}'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - { name: eyebrow, label: Small label, widget: string, required: false }
+                  - { name: heading, label: Heading, widget: string }
+                  - { name: text, label: Text, widget: text, required: false }
+                  - name: bullets
+                    label: Checklist
+                    widget: list
+                    summary: '{{fields.text}}'
+                    fields: [{ name: text, label: Item, widget: string }]
+                  - { name: statValue, label: Big number, widget: string, required: false }
+                  - { name: statLabel, label: Big number label, widget: string, required: false }
+                  - { name: ctaLabel, label: Button label, widget: string, required: false }
+                  - { name: ctaHref, label: Button link, widget: string, required: false }
+                  - { name: reverse, label: Panel on the left, widget: boolean, default: false, required: false }
+
+              - name: marquee
+                label: Scrolling names (partners / clients)
+                widget: object
+                summary: 'Marquee · {{fields.heading}}'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - { name: heading, label: Heading, widget: string }
+                  - name: items
+                    label: Names
+                    widget: list
+                    summary: '{{fields.name}}'
+                    fields: [{ name: name, label: Name, widget: string }]
+
+              - name: testimonials
+                label: Testimonials (auto-rotating)
+                widget: object
+                summary: 'Testimonials'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - { name: heading, label: Heading, widget: string }
+                  - name: items
+                    label: Quotes
+                    widget: list
+                    summary: '{{fields.name}}, {{fields.company}}'
+                    fields:
+                      - { name: quote, label: Quote, widget: text }
+                      - { name: name, label: Name, widget: string }
+                      - { name: company, label: Company, widget: string, required: false }
+
+              - name: cta
+                label: Call-to-action banner
+                widget: object
+                summary: 'CTA · {{fields.heading}}'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - { name: heading, label: Heading, widget: string }
+                  - { name: text, label: Text, widget: text, required: false }
+                  - { name: buttonLabel, label: Button label, widget: string }
+                  - { name: buttonHref, label: 'Button link (#section, tel:, mailto:, https://)', widget: string }
+
+  # ---------- Free-form pages ----------
+  - name: pages
+    label: Pages
+    label_singular: Page
+    folder: src/content/pages
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Search description, widget: string, required: false }
+      - { name: body, label: Content, widget: markdown }

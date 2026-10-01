@@ -1,0 +1,8 @@
+---
+const { eyebrow, heading, text, light = false } = Astro.props;
+---
+<div class:list={['section-head', { light }]}>
+  {eyebrow && <p class="eyebrow reveal">{eyebrow}</p>}
+  {heading && <h2 class="reveal" style="--d:80ms">{heading}</h2>}
+  {text && <p class="section-text reveal" style="--d:160ms">{text}</p>}
+</div>

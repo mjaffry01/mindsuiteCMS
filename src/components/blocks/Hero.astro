@@ -1,0 +1,43 @@
+---
+import { href } from '../../lib/url';
+const { b } = Astro.props;
+// Node positions for the animated network graphic (viewBox 600x520)
+const nodes = [
+  [80, 120], [210, 60], [340, 140], [470, 70], [540, 210], [420, 280],
+  [270, 260], [130, 300], [210, 420], [360, 410], [500, 400], [60, 440],
+];
+const links = [
+  [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 0], [2, 6],
+  [6, 8], [8, 9], [9, 10], [10, 4], [5, 9], [7, 11], [11, 8], [1, 6], [3, 5],
+];
+---
+<section class="hero" id={b.anchor || undefined}>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      {b.eyebrow && <p class="eyebrow reveal">{b.eyebrow}</p>}
+      <h1 class="reveal" style="--d:80ms">{b.heading}</h1>
+      {b.text && <p class="lead reveal" style="--d:160ms">{b.text}</p>}
+      <div class="btn-row reveal" style="--d:240ms">
+        {b.primary?.label && <a class="btn btn-primary" href={href(b.primary.href)}>{b.primary.label}</a>}
+        {b.secondary?.label && <a class="btn btn-ghost" href={href(b.secondary.href)}>{b.secondary.label}</a>}
+      </div>
+    </div>
+    <div class="hero-art" data-parallax aria-hidden="true">
+      <svg viewBox="0 0 600 520">
+        <g class="net-links">
+          {links.map(([a, z], i) => (
+            <line x1={nodes[a][0]} y1={nodes[a][1]} x2={nodes[z][0]} y2={nodes[z][1]} style={`--i:${i}`} />
+          ))}
+        </g>
+        <g class="net-nodes">
+          {nodes.map(([x, y], i) => (
+            <g class="node" style={`--i:${i}`} transform={`translate(${x} ${y})`}>
+              <circle class="pulse" r="14" />
+              <circle class="dot" r={i % 3 === 0 ? 9 : 6} />
+            </g>
+          ))}
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>

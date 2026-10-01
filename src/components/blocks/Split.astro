@@ -1,0 +1,26 @@
+---
+import Icon from '../Icon.astro';
+import { href } from '../../lib/url';
+const { b } = Astro.props;
+---
+<section class:list={['section', 'split', { 'split-reverse': b.reverse }]} id={b.anchor || undefined}>
+  <div class="container split-grid">
+    <div class="split-copy">
+      {b.eyebrow && <p class="eyebrow reveal">{b.eyebrow}</p>}
+      <h2 class="reveal" style="--d:80ms">{b.heading}</h2>
+      {b.text && <p class="section-text reveal" style="--d:160ms">{b.text}</p>}
+      {b.ctaLabel && <a class="btn btn-primary reveal" style="--d:240ms" href={href(b.ctaHref)}>{b.ctaLabel}</a>}
+    </div>
+    <div class="split-panel reveal" style="--d:120ms">
+      {b.statValue && (
+        <div class="split-stat">
+          <span class="split-stat-value">{b.statValue}</span>
+          <span class="split-stat-label">{b.statLabel}</span>
+        </div>
+      )}
+      <ul class="checklist">
+        {(b.bullets || []).map((x: any) => <li><span class="check"><Icon name="check" size={18} /></span>{x.text}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

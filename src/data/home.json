@@ -1,0 +1,148 @@
+{
+  "seoTitle": "MindSuite | Enterprise Digital Transformation & IT Solutions",
+  "seoDescription": "ERP, software development, cybersecurity and applied AI for teams that need platforms built to hold up under real business pressure.",
+  "blocks": [
+    {
+      "type": "hero",
+      "anchor": "top",
+      "eyebrow": "Enterprise digital transformation",
+      "heading": "Enterprise-grade digital solutions",
+      "text": "We help teams modernise with ERP, custom software, cybersecurity and applied AI, delivered as one accountable partner from strategy to support.",
+      "primary": { "label": "Explore services", "href": "#services" },
+      "secondary": { "label": "Schedule consultation", "href": "#contact" }
+    },
+    {
+      "type": "stats",
+      "anchor": "stats",
+      "items": [
+        { "value": 40, "decimals": 0, "suffix": "+", "label": "Projects delivered" },
+        { "value": 98, "decimals": 0, "suffix": "%", "label": "Client satisfaction" },
+        { "value": 40, "decimals": 0, "suffix": "+", "label": "Expert engineers" },
+        { "value": 99.9, "decimals": 1, "suffix": "%", "label": "System reliability" }
+      ]
+    },
+    {
+      "type": "cards",
+      "anchor": "services",
+      "eyebrow": "What we do",
+      "heading": "Six practices, one delivery team",
+      "text": "Pick a single service or combine them into an end-to-end programme.",
+      "items": [
+        { "icon": "erp", "title": "ERP solutions", "text": "Implementation, migration and optimisation on NetSuite, Odoo, ERPNext and SAP.", "link": "#netsuite" },
+        { "icon": "code", "title": "Software development", "text": "Web, mobile and integration engineering built around your workflows.", "link": "#contact" },
+        { "icon": "shield", "title": "Cybersecurity", "text": "Security-first architecture, assessments and hardening for critical systems.", "link": "#contact" },
+        { "icon": "ai", "title": "AI & machine learning", "text": "Applied AI that plugs into existing data and processes to deliver measurable outcomes.", "link": "#contact" },
+        { "icon": "cloud", "title": "Cloud services", "text": "Migration, infrastructure and managed operations that scale with demand.", "link": "#contact" },
+        { "icon": "people", "title": "IT staff augmentation", "text": "Vetted engineers who join your team quickly and work your way.", "link": "#contact" }
+      ]
+    },
+    {
+      "type": "chart",
+      "anchor": "impact",
+      "eyebrow": "Delivery at a glance",
+      "heading": "Where our projects land",
+      "text": "Share of delivered projects by practice. The admin edits these numbers in the CMS and the chart redraws itself.",
+      "chartType": "bar",
+      "seriesLabel": "Projects",
+      "points": [
+        { "label": "ERP", "value": 18 },
+        { "label": "Software", "value": 9 },
+        { "label": "Cloud", "value": 6 },
+        { "label": "Security", "value": 4 },
+        { "label": "AI", "value": 3 }
+      ],
+      "note": "Sample figures — replace them in the CMS under Home page → Chart."
+    },
+    {
+      "type": "tags",
+      "anchor": "industries",
+      "eyebrow": "Industries",
+      "heading": "Built for the sectors we know",
+      "text": "Domain experience that shortens discovery and de-risks delivery.",
+      "items": [
+        { "name": "Financial services" },
+        { "name": "Manufacturing" },
+        { "name": "Retail" },
+        { "name": "E-commerce" },
+        { "name": "Logistics & supply chain" },
+        { "name": "Food & beverages" },
+        { "name": "Government" },
+        { "name": "Hospitality" }
+      ]
+    },
+    {
+      "type": "split",
+      "anchor": "company",
+      "eyebrow": "About MindSuite",
+      "heading": "Digital platforms that hold up under real business pressure",
+      "text": "Founded in 2019, MindSuite focuses on ERP modernisation, security-first delivery and applied AI systems for growing and established businesses.",
+      "bullets": [
+        { "text": "Next-generation technology stack" },
+        { "text": "Enterprise security by default" },
+        { "text": "Scalable infrastructure" },
+        { "text": "Real-time analytics" },
+        { "text": "AI integration services" }
+      ],
+      "statValue": "2019",
+      "statLabel": "Founded in Hyderabad",
+      "ctaLabel": "Talk to an expert",
+      "ctaHref": "#contact",
+      "reverse": false
+    },
+    {
+      "type": "split",
+      "anchor": "netsuite",
+      "eyebrow": "Oracle NetSuite partner",
+      "heading": "360-degree Oracle NetSuite solutions",
+      "text": "From first setup to long-term support, one team owns your NetSuite journey.",
+      "bullets": [
+        { "text": "System setup" },
+        { "text": "Business consulting" },
+        { "text": "User training" },
+        { "text": "Data migration" },
+        { "text": "System customisation" },
+        { "text": "Ongoing support" }
+      ],
+      "statValue": "100+",
+      "statLabel": "NetSuite projects delivered",
+      "ctaLabel": "Book a consultation",
+      "ctaHref": "#contact",
+      "reverse": true
+    },
+    {
+      "type": "marquee",
+      "anchor": "partners",
+      "heading": "Technology partners & clients",
+      "items": [
+        { "name": "Oracle NetSuite" },
+        { "name": "Odoo" },
+        { "name": "ERPNext" },
+        { "name": "SAP" },
+        { "name": "Salesforce" },
+        { "name": "Foods Gate" },
+        { "name": "FI Food Intl" },
+        { "name": "JW Marriott" },
+        { "name": "Maqloba" },
+        { "name": "Dar Sonbol" },
+        { "name": "Siniora" },
+        { "name": "Al Jabr Drinks" }
+      ]
+    },
+    {
+      "type": "testimonials",
+      "anchor": "testimonials",
+      "heading": "What clients say",
+      "items": [
+        { "quote": "The MindSuite team streamlined our processes, improved efficiency and gave us much clearer insight into the business.", "name": "Mirza Hidayath", "company": "Foods Gate" }
+      ]
+    },
+    {
+      "type": "cta",
+      "anchor": "contact",
+      "heading": "Ready to modernise?",
+      "text": "Tell us where you are today. We'll come back with a clear, scoped path forward.",
+      "buttonLabel": "Schedule consultation",
+      "buttonHref": "tel:+919100005500"
+    }
+  ]
+}

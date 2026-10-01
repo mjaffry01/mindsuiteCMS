@@ -1,0 +1,27 @@
+---
+import site from '../data/site.json';
+import { href } from '../lib/url';
+const { contact } = site;
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand brand-light" href={href('/')}><span class="brand-mark" aria-hidden="true"></span><span>{site.name}</span></a>
+      <p class="muted-light">{site.tagline}</p>
+    </div>
+    <div>
+      <h2 class="footer-h">Contact</h2>
+      {contact.address && <p>{contact.address}</p>}
+      {contact.phone && <p><a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a></p>}
+      {contact.email && <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>}
+    </div>
+    <div>
+      <h2 class="footer-h">Explore</h2>
+      <ul class="footer-links">
+        {site.footerLinks.map((l) => <li><a href={href(l.href)}>{l.label}</a></li>)}
+        {site.social.map((s) => <li><a href={s.href} target="_blank" rel="noopener">{s.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">{site.copyright}</div>
+</footer>

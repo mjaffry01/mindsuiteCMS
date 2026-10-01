@@ -1,0 +1,21 @@
+---
+import SectionHead from './SectionHead.astro';
+const { b } = Astro.props;
+const config = JSON.stringify({
+  type: b.chartType || 'bar',
+  label: b.seriesLabel || 'Value',
+  labels: (b.points || []).map((p: any) => p.label),
+  values: (b.points || []).map((p: any) => Number(p.value) || 0),
+});
+---
+<section class="section section-dark" id={b.anchor || undefined}>
+  <div class="container chart-grid">
+    <SectionHead eyebrow={b.eyebrow} heading={b.heading} text={b.text} light />
+    <figure class="chart-card reveal" style="--d:120ms">
+      <div class="chart-box">
+        <canvas data-chart={config} role="img" aria-label={`${b.heading}: ${(b.points || []).map((p: any) => `${p.label} ${p.value}`).join(', ')}`}></canvas>
+      </div>
+      {b.note && <figcaption>{b.note}</figcaption>}
+    </figure>
+  </div>
+</section>

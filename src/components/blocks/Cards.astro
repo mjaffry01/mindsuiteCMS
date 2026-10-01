@@ -1,0 +1,21 @@
+---
+import Icon from '../Icon.astro';
+import SectionHead from './SectionHead.astro';
+import { href } from '../../lib/url';
+const { b } = Astro.props;
+---
+<section class="section" id={b.anchor || undefined}>
+  <div class="container">
+    <SectionHead eyebrow={b.eyebrow} heading={b.heading} text={b.text} />
+    <div class="cards-grid">
+      {b.items.map((c: any, i: number) => (
+        <a class="card reveal" style={`--d:${(i % 3) * 90}ms`} href={href(c.link || '#contact')} data-tilt>
+          <span class="card-icon"><Icon name={c.icon} /></span>
+          <h3>{c.title}</h3>
+          <p>{c.text}</p>
+          <span class="card-more">Read more <Icon name="arrow" size={18} /></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

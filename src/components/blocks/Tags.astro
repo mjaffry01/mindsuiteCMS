@@ -1,0 +1,14 @@
+---
+import SectionHead from './SectionHead.astro';
+const { b } = Astro.props;
+---
+<section class="section" id={b.anchor || undefined}>
+  <div class="container">
+    <SectionHead eyebrow={b.eyebrow} heading={b.heading} text={b.text} />
+    <ul class="tags">
+      {b.items.map((t: any, i: number) => (
+        <li class="tag reveal" style={`--d:${i * 50}ms`}>{t.name}</li>
+      ))}
+    </ul>
+  </div>
+</section>

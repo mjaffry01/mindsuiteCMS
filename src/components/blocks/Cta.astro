@@ -1,0 +1,13 @@
+---
+import { href } from '../../lib/url';
+const { b } = Astro.props;
+---
+<section class="cta" id={b.anchor || undefined}>
+  <div class="container cta-inner reveal">
+    <div>
+      <h2>{b.heading}</h2>
+      {b.text && <p>{b.text}</p>}
+    </div>
+    {b.buttonLabel && <a class="btn btn-light" href={href(b.buttonHref)}>{b.buttonLabel}</a>}
+  </div>
+</section>

@@ -1,0 +1,23 @@
+---
+const { b } = Astro.props;
+const items = b.items || [];
+---
+<section class="section" id={b.anchor || undefined}>
+  <div class="container">
+    <div class="section-head"><h2 class="reveal">{b.heading}</h2></div>
+    <div class="quotes" data-slider>
+      {items.map((q: any, i: number) => (
+        <figure class:list={['quote', { active: i === 0 }]} data-slide>
+          <svg class="quote-mark" viewBox="0 0 48 36" aria-hidden="true"><path d="M0 36V22C0 9 7 1 20 0l2 5c-7 2-10 6-10 12h9v19H0zm26 0V22C26 9 33 1 46 0l2 5c-7 2-10 6-10 12h9v19H26z"/></svg>
+          <blockquote>{q.quote}</blockquote>
+          <figcaption><strong>{q.name}</strong>{q.company && <span> · {q.company}</span>}</figcaption>
+        </figure>
+      ))}
+      {items.length > 1 && (
+        <div class="dots">
+          {items.map((_: any, i: number) => <button aria-label={`Show testimonial ${i + 1}`} class:list={['dot-btn', { active: i === 0 }]} data-dot={i}></button>)}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

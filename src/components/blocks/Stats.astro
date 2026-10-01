@@ -1,0 +1,15 @@
+---
+const { b } = Astro.props;
+---
+<section class="stats" id={b.anchor || undefined}>
+  <div class="container stats-grid">
+    {b.items.map((s: any, i: number) => (
+      <div class="stat reveal" style={`--d:${i * 90}ms`}>
+        <div class="stat-value">
+          {s.prefix}<span data-count={s.value} data-decimals={s.decimals ?? 0}>{s.value}</span>{s.suffix}
+        </div>
+        <div class="stat-label">{s.label}</div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,7 @@
+name = "mindsuite-cms-auth"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+# Origins allowed to receive the login token. Add your custom domain when you attach one.
+ALLOWED_ORIGINS = "https://mjaffry01.github.io"

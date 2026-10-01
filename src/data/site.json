@@ -1,0 +1,28 @@
+{
+  "name": "MindSuite",
+  "tagline": "Enterprise digital transformation & IT solutions",
+  "logo": "",
+  "accent": "#E8572A",
+  "nav": [
+    { "label": "Services", "href": "#services" },
+    { "label": "Company", "href": "#company" },
+    { "label": "NetSuite", "href": "#netsuite" },
+    { "label": "Careers", "href": "/careers" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "navCta": { "label": "Schedule consultation", "href": "#contact" },
+  "contact": {
+    "address": "8-1-299/A/108, Shaikpet, Hyderabad 500 096, Telangana, India",
+    "phone": "+91 9100 00 5500",
+    "email": ""
+  },
+  "social": [
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/" }
+  ],
+  "footerLinks": [
+    { "label": "Careers", "href": "/careers" },
+    { "label": "Privacy Policy", "href": "/privacy-policy" },
+    { "label": "Terms of Service", "href": "/terms-of-service" }
+  ],
+  "copyright": "© 2026 MindSuite Informatics"
+}

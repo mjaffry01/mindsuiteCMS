@@ -1,0 +1,16 @@
+---
+const { b } = Astro.props;
+const items = b.items || [];
+---
+<section class="marquee-section" id={b.anchor || undefined}>
+  <div class="container"><h2 class="marquee-title reveal">{b.heading}</h2></div>
+  <div class="marquee">
+    <div class="marquee-track">
+      {[0, 1].map((copy) => (
+        <ul aria-hidden={copy === 1 ? 'true' : undefined}>
+          {items.map((it: any) => <li>{it.name}</li>)}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>
