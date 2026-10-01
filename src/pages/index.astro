@@ -1,27 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import home from '../data/home.json';
-import Hero from '../components/blocks/Hero.astro';
-import Stats from '../components/blocks/Stats.astro';
-import Cards from '../components/blocks/Cards.astro';
-import Chart from '../components/blocks/Chart.astro';
-import Tags from '../components/blocks/Tags.astro';
-import Split from '../components/blocks/Split.astro';
-import Marquee from '../components/blocks/Marquee.astro';
-import Testimonials from '../components/blocks/Testimonials.astro';
-import Cta from '../components/blocks/Cta.astro';
-
-// Each block "type" in home.json maps to one component.
-// Admins add, remove and reorder blocks in the CMS.
-const registry: Record<string, any> = {
-  hero: Hero, stats: Stats, cards: Cards, chart: Chart, tags: Tags,
-  split: Split, marquee: Marquee, testimonials: Testimonials, cta: Cta,
-};
-const blocks = (home.blocks as any[]).filter((b) => !b.hidden && registry[b.type]);
+import Blocks from '../components/Blocks.astro';
 ---
 <Base title={home.seoTitle} description={home.seoDescription}>
-  {blocks.map((b) => {
-    const C = registry[b.type];
-    return <C b={b} />;
-  })}
+  <Blocks blocks={home.blocks} />
 </Base>

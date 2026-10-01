@@ -1,0 +1,12 @@
+---
+import { marked } from 'marked';
+import SectionHead from './SectionHead.astro';
+const { b } = Astro.props;
+const html = await marked.parse(b.content || '');
+---
+<section class="section section-tight" id={b.anchor || undefined}>
+  <div class="container">
+    {(b.eyebrow || b.heading) && <SectionHead eyebrow={b.eyebrow} heading={b.heading} />}
+    <div class="prose reveal" set:html={html} />
+  </div>
+</section>

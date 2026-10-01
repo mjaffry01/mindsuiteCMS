@@ -1,0 +1,27 @@
+---
+import Hero from './blocks/Hero.astro';
+import Stats from './blocks/Stats.astro';
+import Cards from './blocks/Cards.astro';
+import Chart from './blocks/Chart.astro';
+import Tags from './blocks/Tags.astro';
+import Split from './blocks/Split.astro';
+import Marquee from './blocks/Marquee.astro';
+import Testimonials from './blocks/Testimonials.astro';
+import Cta from './blocks/Cta.astro';
+import RichText from './blocks/RichText.astro';
+
+// Each block "type" stored by the CMS maps to one component.
+// Used by the home page and by every page in src/content/pages.
+const registry: Record<string, any> = {
+  hero: Hero, stats: Stats, cards: Cards, chart: Chart, tags: Tags,
+  split: Split, marquee: Marquee, testimonials: Testimonials, cta: Cta,
+  richtext: RichText,
+};
+
+interface Props { blocks?: any[] }
+const blocks = (Astro.props.blocks || []).filter((b) => b && !b.hidden && registry[b.type]);
+---
+{blocks.map((b) => {
+  const C = registry[b.type];
+  return <C b={b} />;
+})}

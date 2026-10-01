@@ -294,3 +294,13 @@ p { margin: 0; }
   .reveal { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
+
+/* Pages built from sections */
+.page-hero { padding: 72px 0 24px; }
+.page-lead { margin: 18px 0 0; }
+.section-tight { padding: 56px 0; }
+.prose ul, .prose ol { padding-left: 1.3em; color: var(--ink-2); margin: 0 0 16px; }
+.prose li { margin-bottom: 6px; }
+.prose a { color: var(--accent); font-weight: 600; }
+.prose img { border-radius: var(--radius); margin: 24px 0; }
+.prose strong { color: var(--ink); }

@@ -16,9 +16,9 @@ Admin → /admin → Publish → commit to main → GitHub Actions build → Git
 |---|---|
 | **Site settings** | Name, logo, accent colour, menu, contact details, footer |
 | **Home page** | A list of sections. Add, remove, hide or **drag to reorder**. Each section type has its own fields |
-| **Pages** | Free-form pages (Careers, Privacy, Terms…). New pages appear at `/<page-name>` |
+| **Pages** | New pages built from the **same sections as the home page**, plus a Rich text section. A page appears at `/<page-name>`; add it to **Site settings → Menu** to link it |
 
-Section types: animated hero, counting numbers, hover cards, chart (bar / line / doughnut, with editable data), tag cloud, text + checklist panel, scrolling partner names, rotating testimonials, call-to-action banner.
+Section types: animated hero, counting numbers, hover cards, chart (bar / line / doughnut, with editable data), tag cloud, text + checklist panel, scrolling partner names, rotating testimonials, call-to-action banner, rich text.
 
 Animations and interactions live in code (`src/scripts/motion.ts`, `src/styles/global.css`); the CMS only edits content, so admins can't break them.
 
@@ -70,8 +70,8 @@ oauth-worker/        GitHub login helper for the CMS
 
 ### Adding a new section type (developer)
 1. Create `src/components/blocks/MyBlock.astro` (receives the section as `b`).
-2. Register it in `src/pages/index.astro`.
-3. Add a matching entry under `types:` in `public/admin/config.yml`.
+2. Register it in `src/components/Blocks.astro`.
+3. Add a matching entry under `types: &blockTypes` in `public/admin/config.yml` (home page and Pages both pick it up).
 
 ## Content to confirm
 The copy was drafted from the current mindsuite.in homepage. Before going live, check it in the CMS: the **chart figures are sample data**, the contact **email is blank**, the Privacy/Terms pages are placeholders, and the testimonial wording should be checked with the client.

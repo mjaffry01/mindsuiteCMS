@@ -1,8 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import Blocks from '../components/Blocks.astro';
 
 // Every Markdown file in src/content/pages becomes a page at /<file-name>.
-// Admins create new pages from the CMS under "Pages".
+// Admins create pages in the CMS under "Pages" and build them from the same
+// sections as the home page; the optional body text appears after them.
 export async function getStaticPaths() {
   const files = import.meta.glob('../content/pages/*.md', { eager: true }) as Record<string, any>;
   return Object.entries(files).map(([path, mod]) => ({
@@ -11,13 +13,26 @@ export async function getStaticPaths() {
   }));
 }
 const { mod } = Astro.props;
-const { Content, frontmatter } = mod;
+const { Content, frontmatter: fm } = mod;
+const blocks: any[] = (fm.blocks || []).filter((b: any) => b && !b.hidden);
+// Show a plain title header unless the page opens with its own hero section.
+const showTitle = !fm.hideTitle && blocks[0]?.type !== 'hero';
+const hasBody = (mod.rawContent?.() ?? '').trim().length > 0;
 ---
-<Base title={`${frontmatter.title} | MindSuite`} description={frontmatter.description}>
-  <section class="page-hero">
-    <div class="container"><h1 class="reveal">{frontmatter.title}</h1></div>
-  </section>
-  <section class="section">
-    <div class="container prose"><Content /></div>
-  </section>
+<Base title={`${fm.title} | MindSuite`} description={fm.description}>
+  {showTitle && (
+    <section class="page-hero">
+      <div class="container">
+        {fm.eyebrow && <p class="eyebrow reveal">{fm.eyebrow}</p>}
+        <h1 class="reveal" style="--d:80ms">{fm.title}</h1>
+        {fm.description && <p class="lead page-lead reveal" style="--d:160ms">{fm.description}</p>}
+      </div>
+    </section>
+  )}
+  <Blocks blocks={blocks} />
+  {hasBody && (
+    <section class="section section-tight">
+      <div class="container prose"><Content /></div>
+    </section>
+  )}
 </Base>

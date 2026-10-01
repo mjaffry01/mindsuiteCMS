@@ -92,7 +92,8 @@ collections:
             label_singular: section
             widget: list
             typeKey: type
-            types:
+            # The same section types are reused by Pages below (&blockTypes / *blockTypes).
+            types: &blockTypes
               - name: hero
                 label: Hero (animated network)
                 widget: object
@@ -259,14 +260,35 @@ collections:
                   - { name: buttonLabel, label: Button label, widget: string }
                   - { name: buttonHref, label: 'Button link (#section, tel:, mailto:, https://)', widget: string }
 
-  # ---------- Free-form pages ----------
+              - name: richtext
+                label: Rich text (headings, lists, links, images)
+                widget: object
+                summary: 'Text · {{fields.heading}}'
+                fields:
+                  - { name: anchor, label: Section ID, widget: string, required: false }
+                  - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
+                  - { name: eyebrow, label: Small label, widget: string, required: false }
+                  - { name: heading, label: Heading, widget: string, required: false }
+                  - { name: content, label: Content, widget: markdown }
+
+  # ---------- Pages built from the same sections ----------
   - name: pages
     label: Pages
     label_singular: Page
     folder: src/content/pages
     create: true
     slug: '{{slug}}'
+    summary: '{{title}}  →  /{{slug}}'
     fields:
-      - { name: title, label: Title, widget: string }
-      - { name: description, label: Search description, widget: string, required: false }
-      - { name: body, label: Content, widget: markdown }
+      - { name: title, label: Page title, widget: string }
+      - { name: eyebrow, label: Small label above the title, widget: string, required: false }
+      - { name: description, label: 'Intro line (also used by search engines)', widget: string, required: false }
+      - { name: hideTitle, label: Hide the title header, widget: boolean, default: false, required: false }
+      - name: blocks
+        label: Sections (drag to reorder)
+        label_singular: section
+        widget: list
+        required: false
+        typeKey: type
+        types: *blockTypes
+      - { name: body, label: Extra text at the bottom (optional), widget: markdown, required: false }

@@ -28,7 +28,7 @@
       "heading": "Six practices, one delivery team",
       "text": "Pick a single service or combine them into an end-to-end programme.",
       "items": [
-        { "icon": "erp", "title": "ERP solutions", "text": "Implementation, migration and optimisation on NetSuite, Odoo, ERPNext and SAP.", "link": "#netsuite" },
+        { "icon": "erp", "title": "ERP solutions", "text": "Implementation, migration and optimisation on NetSuite, Odoo, ERPNext and SAP.", "link": "/erp-solutions" },
         { "icon": "code", "title": "Software development", "text": "Web, mobile and integration engineering built around your workflows.", "link": "#contact" },
         { "icon": "shield", "title": "Cybersecurity", "text": "Security-first architecture, assessments and hardening for critical systems.", "link": "#contact" },
         { "icon": "ai", "title": "AI & machine learning", "text": "Applied AI that plugs into existing data and processes to deliver measurable outcomes.", "link": "#contact" },
