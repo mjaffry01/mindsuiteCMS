@@ -9,7 +9,8 @@ Chart.register(
 );
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#E8572A';
+const rootStyle = getComputedStyle(document.documentElement);
+const accent = rootStyle.getPropertyValue('--brand').trim() || '#785DA8';
 
 /* Header: shrink on scroll + mobile menu */
 const header = document.querySelector<HTMLElement>('[data-header]');
@@ -50,7 +51,7 @@ function countUp(el: HTMLElement) {
 function drawChart(canvas: HTMLCanvasElement) {
   const cfg = JSON.parse(canvas.dataset.chart || '{}');
   const isDoughnut = cfg.type === 'doughnut';
-  const palette = [accent, '#7FB7C9', '#F2C48D', '#A9B4C2', '#E9E3D5', '#5E7487'];
+  const palette = [accent, '#50C8EC', '#D78BBB', '#9D8BC9', '#5650A2', '#A7E3F5'];
   const grid = 'rgba(255,255,255,0.08)';
   const ink = 'rgba(255,255,255,0.72)';
   new Chart(canvas, {
@@ -60,16 +61,22 @@ function drawChart(canvas: HTMLCanvasElement) {
       datasets: [{
         label: cfg.label,
         data: cfg.values,
-        backgroundColor: isDoughnut ? palette : cfg.type === 'line' ? 'rgba(232,87,42,0.15)' : accent,
-        borderColor: isDoughnut ? '#14202B' : accent,
+        backgroundColor: isDoughnut ? palette : cfg.type === 'line' ? 'rgba(157,139,201,0.2)' : (ctx: any) => {
+          const { chartArea, ctx: c } = ctx.chart;
+          if (!chartArea) return accent;
+          const g = c.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+          g.addColorStop(0, '#5650A2'); g.addColorStop(1, '#9D8BC9');
+          return g;
+        },
+        borderColor: isDoughnut ? '#051440' : cfg.type === 'line' ? '#9D8BC9' : 'transparent',
         borderWidth: isDoughnut ? 3 : 2,
         borderRadius: cfg.type === 'bar' ? 8 : 0,
-        hoverBackgroundColor: isDoughnut ? palette : '#FFB08F',
+        hoverBackgroundColor: isDoughnut ? palette : '#50C8EC',
         fill: cfg.type === 'line',
         tension: 0.35,
         pointRadius: 5,
         pointHoverRadius: 8,
-        pointBackgroundColor: accent,
+        pointBackgroundColor: '#50C8EC',
       }],
     },
     options: {
@@ -77,12 +84,12 @@ function drawChart(canvas: HTMLCanvasElement) {
       maintainAspectRatio: false,
       animation: reduce ? false : { duration: 1400, easing: 'easeOutQuart' },
       plugins: {
-        legend: { display: isDoughnut, labels: { color: ink, font: { family: 'Manrope' } } },
-        tooltip: { backgroundColor: '#0B141C', padding: 12, titleFont: { family: 'Manrope', weight: 'bold' }, bodyFont: { family: 'Manrope' } },
+        legend: { display: isDoughnut, labels: { color: ink, font: { family: 'Ubuntu' } } },
+        tooltip: { backgroundColor: '#ffffff', titleColor: '#051440', bodyColor: '#5650A2', padding: 12, cornerRadius: 10, titleFont: { family: 'Ubuntu', weight: 'bold' }, bodyFont: { family: 'Ubuntu' } },
       },
       scales: isDoughnut ? {} : {
-        x: { grid: { display: false }, ticks: { color: ink, font: { family: 'Manrope', size: 13 } } },
-        y: { grid: { color: grid }, border: { display: false }, ticks: { color: ink, font: { family: 'Manrope' } }, beginAtZero: true },
+        x: { grid: { display: false }, ticks: { color: ink, font: { family: 'Ubuntu', size: 13 } } },
+        y: { grid: { color: grid }, border: { display: false }, ticks: { color: ink, font: { family: 'Ubuntu' } }, beginAtZero: true },
       },
     },
   });

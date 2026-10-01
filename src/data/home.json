@@ -5,20 +5,61 @@
     {
       "type": "hero",
       "anchor": "top",
-      "eyebrow": "Enterprise digital transformation",
-      "heading": "Enterprise-grade digital solutions",
+      "heading": "Enterprise-Grade",
       "text": "We help teams modernise with ERP, custom software, cybersecurity and applied AI, delivered as one accountable partner from strategy to support.",
-      "primary": { "label": "Explore services", "href": "#services" },
-      "secondary": { "label": "Schedule consultation", "href": "#contact" }
+      "primary": {
+        "label": "Explore services",
+        "href": "#services"
+      },
+      "secondary": {
+        "label": "Schedule consultation",
+        "href": "#contact"
+      },
+      "headingAccent": "Digital Solutions",
+      "badge": "Trusted by 40+ organisations worldwide",
+      "tags": [
+        {
+          "name": "ERP"
+        },
+        {
+          "name": "Software development"
+        },
+        {
+          "name": "Cybersecurity"
+        },
+        {
+          "name": "AI solutions"
+        }
+      ]
     },
     {
       "type": "stats",
       "anchor": "stats",
       "items": [
-        { "value": 40, "decimals": 0, "suffix": "+", "label": "Projects delivered" },
-        { "value": 98, "decimals": 0, "suffix": "%", "label": "Client satisfaction" },
-        { "value": 40, "decimals": 0, "suffix": "+", "label": "Expert engineers" },
-        { "value": 99.9, "decimals": 1, "suffix": "%", "label": "System reliability" }
+        {
+          "value": 40,
+          "decimals": 0,
+          "suffix": "+",
+          "label": "Projects delivered"
+        },
+        {
+          "value": 98,
+          "decimals": 0,
+          "suffix": "%",
+          "label": "Client satisfaction"
+        },
+        {
+          "value": 40,
+          "decimals": 0,
+          "suffix": "+",
+          "label": "Expert engineers"
+        },
+        {
+          "value": 99.9,
+          "decimals": 1,
+          "suffix": "%",
+          "label": "System reliability"
+        }
       ]
     },
     {
@@ -28,12 +69,42 @@
       "heading": "Six practices, one delivery team",
       "text": "Pick a single service or combine them into an end-to-end programme.",
       "items": [
-        { "icon": "erp", "title": "ERP solutions", "text": "Implementation, migration and optimisation on NetSuite, Odoo, ERPNext and SAP.", "link": "/erp-solutions" },
-        { "icon": "code", "title": "Software development", "text": "Web, mobile and integration engineering built around your workflows.", "link": "#contact" },
-        { "icon": "shield", "title": "Cybersecurity", "text": "Security-first architecture, assessments and hardening for critical systems.", "link": "#contact" },
-        { "icon": "ai", "title": "AI & machine learning", "text": "Applied AI that plugs into existing data and processes to deliver measurable outcomes.", "link": "#contact" },
-        { "icon": "cloud", "title": "Cloud services", "text": "Migration, infrastructure and managed operations that scale with demand.", "link": "#contact" },
-        { "icon": "people", "title": "IT staff augmentation", "text": "Vetted engineers who join your team quickly and work your way.", "link": "#contact" }
+        {
+          "icon": "erp",
+          "title": "ERP solutions",
+          "text": "Implementation, migration and optimisation on NetSuite, Odoo, ERPNext and SAP.",
+          "link": "/erp-solutions"
+        },
+        {
+          "icon": "code",
+          "title": "Software development",
+          "text": "Web, mobile and integration engineering built around your workflows.",
+          "link": "#contact"
+        },
+        {
+          "icon": "shield",
+          "title": "Cybersecurity",
+          "text": "Security-first architecture, assessments and hardening for critical systems.",
+          "link": "#contact"
+        },
+        {
+          "icon": "ai",
+          "title": "AI & machine learning",
+          "text": "Applied AI that plugs into existing data and processes to deliver measurable outcomes.",
+          "link": "#contact"
+        },
+        {
+          "icon": "cloud",
+          "title": "Cloud services",
+          "text": "Migration, infrastructure and managed operations that scale with demand.",
+          "link": "#contact"
+        },
+        {
+          "icon": "people",
+          "title": "IT staff augmentation",
+          "text": "Vetted engineers who join your team quickly and work your way.",
+          "link": "#contact"
+        }
       ]
     },
     {
@@ -45,11 +116,26 @@
       "chartType": "bar",
       "seriesLabel": "Projects",
       "points": [
-        { "label": "ERP", "value": 18 },
-        { "label": "Software", "value": 9 },
-        { "label": "Cloud", "value": 6 },
-        { "label": "Security", "value": 4 },
-        { "label": "AI", "value": 3 }
+        {
+          "label": "ERP",
+          "value": 18
+        },
+        {
+          "label": "Software",
+          "value": 9
+        },
+        {
+          "label": "Cloud",
+          "value": 6
+        },
+        {
+          "label": "Security",
+          "value": 4
+        },
+        {
+          "label": "AI",
+          "value": 3
+        }
       ],
       "note": "Sample figures — replace them in the CMS under Home page → Chart."
     },
@@ -60,14 +146,30 @@
       "heading": "Built for the sectors we know",
       "text": "Domain experience that shortens discovery and de-risks delivery.",
       "items": [
-        { "name": "Financial services" },
-        { "name": "Manufacturing" },
-        { "name": "Retail" },
-        { "name": "E-commerce" },
-        { "name": "Logistics & supply chain" },
-        { "name": "Food & beverages" },
-        { "name": "Government" },
-        { "name": "Hospitality" }
+        {
+          "name": "Financial services"
+        },
+        {
+          "name": "Manufacturing"
+        },
+        {
+          "name": "Retail"
+        },
+        {
+          "name": "E-commerce"
+        },
+        {
+          "name": "Logistics & supply chain"
+        },
+        {
+          "name": "Food & beverages"
+        },
+        {
+          "name": "Government"
+        },
+        {
+          "name": "Hospitality"
+        }
       ]
     },
     {
@@ -77,11 +179,21 @@
       "heading": "Digital platforms that hold up under real business pressure",
       "text": "Founded in 2019, MindSuite focuses on ERP modernisation, security-first delivery and applied AI systems for growing and established businesses.",
       "bullets": [
-        { "text": "Next-generation technology stack" },
-        { "text": "Enterprise security by default" },
-        { "text": "Scalable infrastructure" },
-        { "text": "Real-time analytics" },
-        { "text": "AI integration services" }
+        {
+          "text": "Next-generation technology stack"
+        },
+        {
+          "text": "Enterprise security by default"
+        },
+        {
+          "text": "Scalable infrastructure"
+        },
+        {
+          "text": "Real-time analytics"
+        },
+        {
+          "text": "AI integration services"
+        }
       ],
       "statValue": "2019",
       "statLabel": "Founded in Hyderabad",
@@ -96,12 +208,24 @@
       "heading": "360-degree Oracle NetSuite solutions",
       "text": "From first setup to long-term support, one team owns your NetSuite journey.",
       "bullets": [
-        { "text": "System setup" },
-        { "text": "Business consulting" },
-        { "text": "User training" },
-        { "text": "Data migration" },
-        { "text": "System customisation" },
-        { "text": "Ongoing support" }
+        {
+          "text": "System setup"
+        },
+        {
+          "text": "Business consulting"
+        },
+        {
+          "text": "User training"
+        },
+        {
+          "text": "Data migration"
+        },
+        {
+          "text": "System customisation"
+        },
+        {
+          "text": "Ongoing support"
+        }
       ],
       "statValue": "100+",
       "statLabel": "NetSuite projects delivered",
@@ -114,18 +238,42 @@
       "anchor": "partners",
       "heading": "Technology partners & clients",
       "items": [
-        { "name": "Oracle NetSuite" },
-        { "name": "Odoo" },
-        { "name": "ERPNext" },
-        { "name": "SAP" },
-        { "name": "Salesforce" },
-        { "name": "Foods Gate" },
-        { "name": "FI Food Intl" },
-        { "name": "JW Marriott" },
-        { "name": "Maqloba" },
-        { "name": "Dar Sonbol" },
-        { "name": "Siniora" },
-        { "name": "Al Jabr Drinks" }
+        {
+          "name": "Oracle NetSuite"
+        },
+        {
+          "name": "Odoo"
+        },
+        {
+          "name": "ERPNext"
+        },
+        {
+          "name": "SAP"
+        },
+        {
+          "name": "Salesforce"
+        },
+        {
+          "name": "Foods Gate"
+        },
+        {
+          "name": "FI Food Intl"
+        },
+        {
+          "name": "JW Marriott"
+        },
+        {
+          "name": "Maqloba"
+        },
+        {
+          "name": "Dar Sonbol"
+        },
+        {
+          "name": "Siniora"
+        },
+        {
+          "name": "Al Jabr Drinks"
+        }
       ]
     },
     {
@@ -133,7 +281,11 @@
       "anchor": "testimonials",
       "heading": "What clients say",
       "items": [
-        { "quote": "The MindSuite team streamlined our processes, improved efficiency and gave us much clearer insight into the business.", "name": "Mirza Hidayath", "company": "Foods Gate" }
+        {
+          "quote": "The MindSuite team streamlined our processes, improved efficiency and gave us much clearer insight into the business.",
+          "name": "Mirza Hidayath",
+          "company": "Foods Gate"
+        }
       ]
     },
     {

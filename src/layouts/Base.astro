@@ -18,8 +18,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style set:html={`:root{--accent:${site.accent || '#E8572A'}}`}></style>
+  <!-- Ubuntu is a free near-match for MindSuite's brand face, Aller (same type foundry). -->
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style set:html={`:root{--brand:${site.accent || '#785DA8'}}`}></style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>

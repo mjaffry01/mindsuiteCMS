@@ -2,11 +2,14 @@
 import site from '../data/site.json';
 import { href } from '../lib/url';
 const { contact } = site;
+const light = (site as any).logoLight;
 ---
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a class="brand brand-light" href={href('/')}><span class="brand-mark" aria-hidden="true"></span><span>{site.name}</span></a>
+      <a class="footer-logo brand brand-light" href={href('/')}>
+        {light ? <img src={href(light)} alt={site.name} width="206" height="44" /> : <><span class="brand-mark" aria-hidden="true"></span><span>{site.name}</span></>}
+      </a>
       <p class="muted-light">{site.tagline}</p>
     </div>
     <div>

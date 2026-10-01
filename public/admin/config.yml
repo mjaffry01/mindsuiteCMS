@@ -39,8 +39,9 @@ collections:
         fields:
           - { name: name, label: Company name, widget: string }
           - { name: tagline, label: Tagline, widget: string }
-          - { name: logo, label: Logo (optional, replaces the text logo), widget: image, required: false }
-          - { name: accent, label: Accent colour, widget: color, default: '#E8572A' }
+          - { name: logo, label: Logo (for the white header), widget: image, required: false }
+          - { name: logoLight, label: White logo (for the dark footer), widget: image, required: false }
+          - { name: accent, label: Brand colour, widget: color, default: '#785DA8' }
           - name: nav
             label: Menu
             widget: list
@@ -102,8 +103,9 @@ collections:
                 fields:
                   - { name: anchor, label: Section ID, widget: string, required: false }
                   - { name: hidden, label: Hide this section, widget: boolean, default: false, required: false }
-                  - { name: eyebrow, label: Small label, widget: string, required: false }
-                  - { name: heading, label: Heading, widget: string }
+                  - { name: badge, label: Badge above the headline, widget: string, required: false }
+                  - { name: heading, label: Headline (white line), widget: string }
+                  - { name: headingAccent, label: Headline (purple line), widget: string, required: false }
                   - { name: text, label: Intro text, widget: text, required: false }
                   - name: primary
                     label: Primary button
@@ -114,6 +116,12 @@ collections:
                     widget: object
                     required: false
                     fields: [{ name: label, label: Label, widget: string }, { name: href, label: Link, widget: string }]
+                  - name: tags
+                    label: Small tags under the buttons
+                    widget: list
+                    required: false
+                    summary: '{{fields.name}}'
+                    fields: [{ name: name, label: Tag, widget: string }]
 
               - name: stats
                 label: Counting numbers
