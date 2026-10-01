@@ -3,7 +3,7 @@
 The MindSuite marketing site, rebuilt so non-developers can edit it in the browser.
 
 - **Site:** [Astro](https://astro.build), static pages with animations, a live chart and hover effects.
-- **CMS:** [Decap CMS](https://decapcms.org) at `/admin`. An admin signs in with GitHub, edits, and clicks **Publish**.
+- **CMS:** [Sveltia CMS](https://github.com/sveltia/sveltia-cms) (a drop-in Decap CMS replacement) at `/admin`. An editor signs in with a GitHub token, edits, and clicks **Save**.
 - **Hosting:** GitHub Pages. Every Publish is a commit to `main`, and the workflow in `.github/workflows/deploy.yml` rebuilds and redeploys in about a minute.
 
 ```
@@ -27,7 +27,11 @@ Animations and interactions live in code (`src/scripts/motion.ts`, `src/styles/g
 ### 1. Turn on GitHub Pages
 Repo → **Settings → Pages → Source: GitHub Actions**. Push to `main` (or run the workflow) and the site appears at `https://mjaffry01.github.io/mindsuiteCMS/`.
 
-### 2. Enable the admin login (GitHub OAuth helper)
+### 2. Editor sign-in
+
+Each editor creates a GitHub **fine-grained personal access token**: GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Repository access: *Only select repositories* → `mindsuiteCMS`. Permissions: **Contents → Read and write**. Then open `/admin`, choose **Sign in with token** and paste it.
+
+### Optional: one-click "Sign in with GitHub" (OAuth helper)
 GitHub Pages can't run server code, so the login uses a free Cloudflare Worker in `oauth-worker/`.
 
 1. Create a GitHub OAuth App: GitHub → Settings → Developer settings → **OAuth Apps → New**.
@@ -40,7 +44,7 @@ GitHub Pages can't run server code, so the login uses a free Cloudflare Worker i
    npx wrangler secret put GITHUB_CLIENT_ID
    npx wrangler secret put GITHUB_CLIENT_SECRET
    ```
-3. Put the worker URL in `public/admin/config.yml` → `backend.base_url`, and commit.
+3. Uncomment `base_url` / `auth_endpoint` in `public/admin/config.yml`, set the worker URL, and commit.
 4. Anyone who should edit the site needs **write access to this repo** on GitHub.
 
 ### 3. Custom domain (optional)

@@ -7,10 +7,11 @@ backend:
   name: github
   repo: mjaffry01/mindsuiteCMS
   branch: main
-  # GitHub login helper (see oauth-worker/README section in the main README).
-  # Replace with your deployed Cloudflare Worker URL.
-  base_url: https://mindsuite-cms-auth.YOUR-SUBDOMAIN.workers.dev
-  auth_endpoint: auth
+  # Editors sign in with a GitHub personal access token (see README).
+  # Optional: for a one-click "Sign in with GitHub" button, deploy oauth-worker/
+  # and uncomment these two lines with its URL.
+  # base_url: https://mindsuite-cms-auth.YOUR-SUBDOMAIN.workers.dev
+  # auth_endpoint: auth
   commit_messages:
     update: 'content: update {{collection}} “{{slug}}”'
     create: 'content: create {{collection}} “{{slug}}”'
